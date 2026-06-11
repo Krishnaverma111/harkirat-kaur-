@@ -37,7 +37,30 @@ export default function App() {
     <div style={{ fontFamily: "'Segoe UI', system-ui, sans-serif", background: "#0a0c10", color: "#fff", minHeight: "100vh" }}>
 
       {/* ── NAV ── */}
-    
+      <nav style={{
+        position: "fixed", top: 0, left: 0, right: 0, zIndex: 100,
+        display: "flex", alignItems: "center", justifyContent: "space-between",
+        padding: "0 2rem", height: 56,
+        background: "rgba(10,12,16,0.85)", backdropFilter: "blur(12px)",
+        borderBottom: "1px solid rgba(255,255,255,0.06)"
+      }}>
+        <span style={{ fontWeight: 700, letterSpacing: 2, fontSize: 14, color: "#00bcd4" }}>HK</span>
+
+        {/* desktop links */}
+        <div style={{ display: "flex", gap: 32, alignItems: "center" }} className="nav-desktop">
+          {navLinks.map(n => (
+            <a key={n} href={`#${n.toLowerCase()}`}
+              onClick={() => setActive(n)}
+              style={{
+                fontSize: 13, fontWeight: 500, letterSpacing: 1,
+                color: active === n ? "#00bcd4" : "#9ca3af",
+                textDecoration: "none", transition: "color .2s"
+              }}>{n}</a>
+          ))}
+        </div>
+
+        <span style={{ fontSize: 13, color: "#9ca3af" }}>8059780792</span>
+      </nav>
 
       {/* ── HERO ── */}
       <section id="home" style={{
